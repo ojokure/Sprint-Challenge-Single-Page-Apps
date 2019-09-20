@@ -4,6 +4,9 @@ import CharacterList from "./components/CharacterList";
 import { Route } from "react-router-dom";
 import WelcomePage from "./components/WelcomePage";
 import SearchForm from "./components/SearchForm";
+import { bounce } from "react-animations";
+import styled from  "styled-components";
+
 
 export default function App() {
   return (

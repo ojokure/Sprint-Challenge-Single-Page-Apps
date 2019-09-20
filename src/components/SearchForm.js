@@ -1,5 +1,13 @@
 import React, { useState } from "react";
 import Axios from "axios";
+import styled from  "styled-components";
+import { bounce } from "react-animations";
+
+
+
+
+
+
 
 export default function SearchForm() {
   const [search, setSearch] = useState("");
@@ -13,8 +21,7 @@ export default function SearchForm() {
   // useEffect(() => {
   const handleSubmit = e => {
     e.preventDefault();
-    Axios.get(`https://rickandmortyapi.com/api/character/?name=${search}`)
-    .then(
+    Axios.get(`https://rickandmortyapi.com/api/character/?name=${search}`).then(
       res => {
         setResults(res.data.results);
       }
@@ -41,7 +48,10 @@ export default function SearchForm() {
       <section className="character-list">
         {result.map(el => (
           <div>
-            Name: {el.name} Species:{el.species}
+            <div>
+              <img src={el.image} alt={el.id} />
+            </div>
+           <h4> Name: {el.name} Species:{el.species} </h4> 
           </div>
         ))}
       </section>
