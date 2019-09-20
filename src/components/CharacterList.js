@@ -26,11 +26,8 @@ export default function CharacterList() {
 
     <section className="character-list">
        {character.map(el => 
-       <div>
-        <div>{el.name}</div>
-        <div>{el.species}</div>
-        <div>{el.gender}</div>
-
+        <div>
+        Name: {el.name} Species:{el.species} Gender: {el.gender}
         </div>
       ) }
     </section>
