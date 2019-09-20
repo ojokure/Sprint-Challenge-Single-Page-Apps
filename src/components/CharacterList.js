@@ -1,16 +1,35 @@
 import React, { useEffect, useState } from "react";
+import Axios from "axios";
+import { bounce } from "react-animations";
+import styled from "styled-components";
+
+const api = "https://rickandmortyapi.com/api/character/";
 
 export default function CharacterList() {
   // TODO: Add useState to track data from useEffect
+  const [character, setCharacter] = useState([]);
 
   useEffect(() => {
-    // TODO: Add API Request here - must run in `useEffect`
-    //  Important: verify the 2nd `useEffect` parameter: the dependancies array!
-  }, []);
+    Axios.get(api)
+      .then(res => {
+        setCharacter(res.data.results);
+      })
+      .catch(err => {});
+  }, [character]);
 
   return (
     <section className="character-list">
-      <h2>TODO: `array.map()` over your state here!</h2>
+      {character.map(el => (
+        <div key={el.id}>
+          <div>
+            <img src={el.image} alt={el.id} />
+          </div>
+          <h4>
+            <p>Name: {el.name} </p> <p>Species:{el.species}</p>
+            <p>Gender: {el.gender} </p>
+          </h4>
+        </div>
+      ))}
     </section>
   );
 }

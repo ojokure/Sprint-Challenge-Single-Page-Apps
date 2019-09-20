@@ -29,6 +29,10 @@ Demonstrate your understanding of this Sprint's concepts by answering the follow
 
 > Answer:
 
+
+It is great for web application in that it offers control over your site url and content without necesarily having to wait for a server(server-side ) to respond with content.
+It makes for rich site interaction and fast website rendering after the initial load.
+
 ## Project Set Up
 
 Follow these steps to set up and work on your project:
