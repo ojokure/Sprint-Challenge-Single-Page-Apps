@@ -1,35 +1,27 @@
 import React, { useEffect, useState } from "react";
 import Axios from "axios";
 
-const api = 'https://rickandmortyapi.com/api/character/';
+const api = "https://rickandmortyapi.com/api/character/";
 
 export default function CharacterList() {
   // TODO: Add useState to track data from useEffect
-      const [character, setCharacter] = useState([]);
-
-
+  const [character, setCharacter] = useState([]);
 
   useEffect(() => {
-    // TODO: Add API Request here - must run in `useEffect`
-    //  Important: verify the 2nd `useEffect` parameter: the dependancies array!
     Axios.get(api)
-     .then(res => {
-           setCharacter(res.data.results) 
-     })
-     .catch(err => {
-     });
-
-
-  }, []);
+      .then(res => {
+        setCharacter(res.data.results);
+      })
+      .catch(err => {});
+  }, [character]);
 
   return (
-
     <section className="character-list">
-       {character.map(el => 
+      {character.map(el => (
         <div>
-        Name: {el.name} Species:{el.species} Gender: {el.gender}
+          Name: {el.name} Species:{el.species} Gender: {el.gender}
         </div>
-      ) }
+      ))}
     </section>
   );
 }
