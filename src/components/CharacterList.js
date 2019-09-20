@@ -18,9 +18,13 @@ export default function CharacterList() {
   return (
     <section className="character-list">
       {character.map(el => (
-        <div>
+        <div key={el.id}>
           Name: {el.name} Species:{el.species} Gender: {el.gender}
+          <div>
+            <img src={el.image}/>
+          </div>
         </div>
+  
       ))}
     </section>
   );
