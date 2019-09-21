@@ -46,7 +46,7 @@ export default function SearchForm() {
   const [searchResult, setSearchResult] = useState([]);
 
   const handleChange = e => {
-    setSearch(e.target.value);
+    setSearchResult(e.target.value);
   };
 
   // useEffect(() => {

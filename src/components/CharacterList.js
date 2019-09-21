@@ -4,7 +4,9 @@ import { bounce } from "react-animations";
 import Header from "./Header";
 import styled from "styled-components";
 
-const api = "https://rickandmortyapi.com/api/character/";
+const api = "https://rick-api.herokuapp.com/api/";
+
+
 
 const StyledSection = styled.section`
   color: blue;
