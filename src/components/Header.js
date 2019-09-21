@@ -7,8 +7,9 @@ const WrapDiv = styled.div`
   text-align: center;
   align-content: center;
   font-family:'ABeeZee';
-  color:blue;
+  color:#fed45f;
   &:hover {
+    color:blue;
     background-position: 0 -500px;
   }
 `;

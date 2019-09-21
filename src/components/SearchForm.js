@@ -5,19 +5,21 @@ import { bounce } from "react-animations";
 
 const StyledForm = styled.section`
   font-family: "ABeeZee";
-  color:blue;
+  color:#fed45f;
+  padding-top:15px;
   &:hover {
-    color: green;
+    color:blue;
     font-weight: bold;
   }
 `;
 
 const StyledResult = styled(StyledForm)`
-  color: blue;
-  display: grid;
+   color: blue;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
   text-align: center;
-  align-content: center;
-  margin: 20px;
+  margin: 20px auto;
   font-family: "ABeeZee";
   width: 100%;
   text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #7ab900,
@@ -27,6 +29,15 @@ const StyledResult = styled(StyledForm)`
     rgba(255, 255, 255, 0.3),
     rgba(255, 255, 255, 0.3)
   );
+  &:hover {
+    color: green;
+    font-weight: bold;
+  }
+`;
+
+const StyledImg = styled.img`
+  border-radius: 50%;
+  width: 75%;
 `;
 
 export default function SearchForm() {
@@ -69,7 +80,7 @@ export default function SearchForm() {
         {searchResult.map(el => (
           <div>
             <div>
-              <img src={el.image} alt={el.id} />
+              <StyledImg src={el.image} alt={el.id} />
             </div>
             <h4>
               Name: {el.name} Species:{el.species}{" "}
