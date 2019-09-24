@@ -4,17 +4,19 @@ import styled from "styled-components";
 
 
 const HeaderImg = styled.img`
-    /* border-radius:50%; */
+    border-radius:25%;
     align-content:center;
-    padding-left: 380px;
 `;
-const HeaderSection = styled.header`
+const HeaderSection = styled.section`
     border-radius:50%;
-        color:#fed45f;
+        color:#fe6a6a;
     font-family:'ABeeZee'; 
+    justify-content:center;
+    text-align:center;
+
     &:hover {
     color:blue;
-    background-position: 0 -500px;
+    font-Weight: bold,
   }
 `;
 export default function WelcomePage() {

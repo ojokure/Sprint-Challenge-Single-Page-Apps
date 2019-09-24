@@ -1,20 +1,19 @@
-import React, { useState } from "react";
-import Axios from "axios";
+import React from "react";
 import styled from "styled-components";
 import { bounce } from "react-animations";
 
 const StyledForm = styled.section`
   font-family: "ABeeZee";
-  color:#fed45f;
-  padding-top:15px;
+  color: #fe6a6a;
+  padding-top: 15px;
   &:hover {
-    color:blue;
+    color: blue;
     font-weight: bold;
   }
 `;
 
 const StyledResult = styled(StyledForm)`
-   color: blue;
+  color: blue;
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
@@ -40,44 +39,26 @@ const StyledImg = styled.img`
   width: 75%;
 `;
 
-export default function SearchForm() {
-  const [search, setSearch] = useState("");
-
-  const [searchResult, setSearchResult] = useState([]);
-
-  const handleChange = e => {
-    setSearchResult(e.target.value);
-  };
-
-  // useEffect(() => {
-  const handleSubmit = e => {
-    e.preventDefault();
-    Axios.get(`https://rickandmortyapi.com/api/character/?name=${search}`).then(
-      res => {
-        setSearchResult(res.data.results);
-      }
-    );
-  };
-  // }, [search]);
-
+export default function SearchForm(props) {
   return (
     <>
       <StyledForm>
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={props.handleSubmit} onChange={props.handleChange} searchResult={props.searchResult}>
           <div>
-            <label htmlFor="name"> search </label>
             <input
-              value={search}
-              onChange={handleChange}
+              value={props.search}
               id="name"
               type="text"
               placeholder="search by name"
             />
+            <label htmlFor="search">
+              <button onSubmit={props.handleSubmit}>search </button>
+            </label>
           </div>
         </form>
       </StyledForm>
       <StyledResult>
-        {searchResult.map(el => (
+        {props.searchResult.map(el => (
           <div>
             <div>
               <StyledImg src={el.image} alt={el.id} />

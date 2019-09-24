@@ -1,12 +1,6 @@
-import React, { useEffect, useState } from "react";
-import Axios from "axios";
+import React from "react";
 import { bounce } from "react-animations";
-import Header from "./Header";
 import styled from "styled-components";
-
-const api = "https://rick-api.herokuapp.com/api/";
-
-
 
 const StyledSection = styled.section`
   color: blue;
@@ -35,31 +29,23 @@ const StyledImg = styled.img`
   width: 75%;
 `;
 
-export default function CharacterList() {
+export default function CharacterList(props) {
+  
   // TODO: Add useState to track data from useEffect
-  const [character, setCharacter] = useState([]);
-
-  useEffect(() => {
-    Axios.get(api)
-      .then(res => {
-        setCharacter(res.data.results);
-      })
-      .catch(err => {});
-  }, [character]);
 
   return (
-      <StyledSection>
-        {character.map(el => (
-          <div key={el.id}>
-            <div>
-              <StyledImg src={el.image} alt={el.id} />
-            </div>
-            <h4>
-              <p>Name: {el.name} </p> <p>Species:{el.species}</p>
-              <p>Gender: {el.gender} </p>
-            </h4>
+    <StyledSection>
+      {props.character.map(el => (
+        <div key={el.id}>
+          <div>
+            <StyledImg src={el.image} alt={el.id} />
           </div>
-        ))}
-      </StyledSection>
+          <h4>
+            <p>Name: {el.name} </p> <p>Species:{el.species}</p>
+            <p>Gender: {el.gender} </p>
+          </h4>
+        </div>
+      ))}
+    </StyledSection>
   );
 }

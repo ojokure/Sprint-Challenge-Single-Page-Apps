@@ -8,7 +8,7 @@ main {
   width: 90vw;
   min-height: 80vh;
   /* max-width: 1024px; */
-
+  border-radius: 5%;
   margin: 35px auto;
   background: #a9d3e9;
   padding: 15px;
